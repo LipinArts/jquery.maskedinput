@@ -221,12 +221,9 @@ $.fn.extend({
 					var pos2 = checkVal(true);
 					var lastEnteredValue = curVal.charAt(pos.begin);
 					if (pos.begin < len){
-						if(!tests[pos.begin]){
-							pos.begin++;
-							if(tests[pos.begin].test(lastEnteredValue)){
-								pos.begin++;
-							}
-						}else{
+						if (!tests[pos.begin]) {
+							pos.begin = pos2;
+						} else {
 							if(tests[pos.begin].test(lastEnteredValue)){
 								pos.begin++;
 							}
